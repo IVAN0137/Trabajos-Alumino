@@ -27,30 +27,91 @@ header h1 {
     margin: 0;
 }
 
-/* Galería */
-.trabajos {
+/* Sección de Herrería */
+#herreria {
     margin: 2rem auto;
     padding: 2rem;
     max-width: 1200px;
-    background-color: #fff;
+    background: url('img/herreria-bg.jpg') no-repeat center center;
+    background-size: cover;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    position: relative;
 }
 
-.trabajos h2 {
+#herreria::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#herreria h2 {
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 2rem;
-    color: #444;
+    position: relative;
+    z-index: 2;
 }
 
-.galeria {
+#herreria .galeria {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem;
+    position: relative;
+    z-index: 2;
 }
 
+/* Sección de Aluminio */
+#aluminio {
+    margin: 2rem auto;
+    padding: 2rem;
+    max-width: 1200px;
+    background: url('img/aluminio-bg.jpg') no-repeat center center;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    position: relative;
+}
+
+#aluminio::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    border-radius: 10px;
+    z-index: 1;
+}
+
+#aluminio h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+#aluminio .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* Tarjetas */
 .card {
     background-color: #fff;
     border-radius: 10px;
@@ -166,7 +227,7 @@ header h1 {
         font-size: 2rem;
     }
 
-    .trabajos h2 {
+    #herreria h2, #aluminio h2 {
         font-size: 1.8rem;
     }
 
@@ -197,31 +258,5 @@ header h1 {
 
     .contacto-icons i {
         font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .card {
-        width: 100px;
-    }
-
-    .card img {
-        height: 100px;
-    }
-
-    .modal-desc {
-        font-size: 0.9rem;
-    }
-
-    .contacto-icons a {
-        font-size: 0.9rem;
-    }
-
-    .contacto-icons i {
-        font-size: 1rem;
     }
 }
