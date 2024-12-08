@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Herrería y Aluminio</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Portafolio de Herrería y Aluminio</h1>
+        <nav class="navegacion">
+            <ul>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="galeria" class="galeria">
+            <h2 class="subtitulo">Nuestros Trabajos</h2>
+            <div class="grid">
+                <div class="card" onclick="abrirModal('img/trabajo1.jpg', 'Puerta de aluminio moderna')">
+                    <img src="img/trabajo1.jpg" alt="Puerta de aluminio">
+                    <div class="overlay">
+                        <p>Puerta de aluminio moderna</p>
+                    </div>
+                </div>
+                <div class="card" onclick="abrirModal('img/trabajo2.jpg', 'Ventana de herrería clásica')">
+                    <img src="img/trabajo2.jpg" alt="Ventana de herrería">
+                    <div class="overlay">
+                        <p>Ventana de herrería clásica</p>
+                    </div>
+                </div>
+                <!-- Agrega más trabajos aquí -->
+            </div>
+        </section>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="cerrar" onclick="cerrarModal()">&times;</span>
+                <img id="modal-img" src="" alt="Trabajo ampliado">
+                <p id="modal-desc"></p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contacto" class="footer">
+        <p>Contáctanos: <a href="mailto:email@ejemplo.com">email@ejemplo.com</a></p>
+        <p>Teléfono: <a href="tel:+1234567890">+1234567890</a></p>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
