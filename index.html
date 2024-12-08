@@ -6,51 +6,77 @@
     <title>Portafolio de Herrería y Aluminio</title>
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <h1 class="titulo">Portafolio de Herrería y Aluminio</h1>
-        <nav class="navegacion">
-            <ul>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
+    <header>
+        <h1>Portafolio de Herrería y Aluminio</h1>
     </header>
-
+    
     <main>
-        <section id="galeria" class="galeria">
-            <h2 class="subtitulo">Nuestros Trabajos</h2>
-            <div class="grid">
-                <div class="card" onclick="abrirModal('img/trabajo1.jpg', 'Puerta de aluminio moderna')">
-                    <img src="img/trabajo1.jpg" alt="Puerta de aluminio">
-                    <div class="overlay">
-                        <p>Puerta de aluminio moderna</p>
-                    </div>
+        <!-- Sección de Aluminio -->
+        <section id="aluminio" class="trabajos">
+            <h2>Trabajos de Aluminio</h2>
+            <div class="galeria">
+                <div class="card" onclick="abrirModal('res/images/aluminio 2.jpeg', 'Puerta De Aluminio')">
+                    <img src="res/images/aluminio 2.jpeg" alt="Aluminio 1">
+                    <p>Puerta De Aluminio</p>
                 </div>
-                <div class="card" onclick="abrirModal('img/trabajo2.jpg', 'Ventana de herrería clásica')">
-                    <img src="img/trabajo2.jpg" alt="Ventana de herrería">
-                    <div class="overlay">
-                        <p>Ventana de herrería clásica</p>
-                    </div>
+                <div class="card" onclick="abrirModal('img/aluminio2.jpg', 'Trabajo de Aluminio 2')">
+                    <img src="img/aluminio2.jpg" alt="Aluminio 2">
+                    <p>Puerta de aluminio anodizado</p>
                 </div>
-                <!-- Agrega más trabajos aquí -->
             </div>
         </section>
 
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="cerrar" onclick="cerrarModal()">&times;</span>
-                <img id="modal-img" src="" alt="Trabajo ampliado">
-                <p id="modal-desc"></p>
+        <!-- Sección de Herrería -->
+        <section id="herreria" class="trabajos">
+            <h2>Trabajos de Herrería</h2>
+            <div class="galeria">
+                <div class="card" onclick="abrirModal('img/herreria1.jpg', 'Trabajo de Herrería 1')">
+                    <img src="img/herreria1.jpg" alt="Herrería 1">
+                    <p>Puerta de hierro moderna</p>
+                </div>
+                <div class="card" onclick="abrirModal('img/herreria2.jpg', 'Trabajo de Herrería 2')">
+                    <img src="img/herreria2.jpg" alt="Herrería 2">
+                    <p>Reja decorativa</p>
+                </div>
             </div>
-        </div>
+        </section>
+    
+        
     </main>
-
+    
+    <!-- Modal para expandir imágenes -->
+    <div id="modal" class="modal" onclick="cerrarModal()">
+        <span class="modal-cerrar">&times;</span>
+        <img class="modal-img" id="modal-img" src="" alt="Imagen expandida">
+        <p class="modal-desc" id="modal-desc"></p>
+    </div>
+    
     <footer id="contacto" class="footer">
-        <p>Contáctanos: <a href="mailto:email@ejemplo.com">email@ejemplo.com</a></p>
-        <p>Teléfono: <a href="tel:+1234567890">+1234567890</a></p>
+        <h2>Contáctanos</h2>
+        <div class="contacto-icons">
+            <a href="https://www.facebook.com/TuPaginaDeFacebook" target="_blank">
+                <i class="fab fa-facebook-square"></i> Facebook
+            </a>
+            <a href="https://wa.me/+527296838453" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="l20141457@queretaro.tecnm.mx">
+                <i class="fas fa-envelope"></i> Correo
+            </a>
+            <a href="tel:+527296838453">
+                <i class="fas fa-phone"></i> Teléfono
+            </a>
+            <a href="https://goo.gl/maps/ejemploDireccion" target="_blank">
+                <i class="fas fa-map-marker-alt"></i> Ubicación
+            </a>
+        </div>
     </footer>
+    
+    
+    
 
     <script src="index.js"></script>
 </body>
