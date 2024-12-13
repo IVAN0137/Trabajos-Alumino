@@ -122,6 +122,25 @@
             background: var(--accent-color);
             color: white;
         }
+
+        .contact-btn {
+            margin-left: 10px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #3498db;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #2c3e50;
+        }
     </style>
 </head>
 <body>
@@ -145,9 +164,10 @@
             <div class="col-md-4" data-aos="fade-up" data-category="ventanas">
                 <div class="catalog-item">
                     <div class="catalog-img">
-                        <img src="ventana1.jpg" alt="Ventana Corrediza">
+                        <img src="img/aluminio 2.jpeg" alt="Ventana Corrediza" class="catalog-img-thumbnail">
                         <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(1)">Ver Detalles</button>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#detailModal" data-id="1">Ver Detalles</button>
+                            <button class="btn btn-light contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">Contáctanos</button>
                         </div>
                     </div>
                     <div class="catalog-details">
@@ -162,9 +182,10 @@
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-category="puertas">
                 <div class="catalog-item">
                     <div class="catalog-img">
-                        <img src="puerta1.jpg" alt="Puerta Principal">
+                        <img src="puerta1.jpg" alt="Puerta Principal" class="catalog-img-thumbnail">
                         <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(2)">Ver Detalles</button>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#detailModal" data-id="2">Ver Detalles</button>
+                            <button class="btn btn-light contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">Contáctanos</button>
                         </div>
                     </div>
                     <div class="catalog-details">
@@ -179,9 +200,10 @@
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="400" data-category="canceleria">
                 <div class="catalog-item">
                     <div class="catalog-img">
-                        <img src="cancel1.jpg" alt="Cancelería">
+                        <img src="cancel1.jpg" alt="Cancelería" class="catalog-img-thumbnail">
                         <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(3)">Ver Detalles</button>
+                            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#detailModal" data-id="3">Ver Detalles</button>
+                            <button class="btn btn-light contact-btn" data-bs-toggle="modal" data-bs-target="#contactModal">Contáctanos</button>
                         </div>
                     </div>
                     <div class="catalog-details">
@@ -192,12 +214,54 @@
                 </div>
             </div>
         </div>
+
+        <!-- Redes Sociales -->
+        <div class="social-icons text-center">
+            <a href="https://facebook.com/tuempresa" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/tuempresa" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal de Detalles -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailModalLabel">Detalles del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modal-content">
+                        <!-- Aquí se cargarán dinámicamente los detalles del producto -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Contacto -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a></p>
+                    <p><strong>Facebook:</strong> <a href="https://facebook.com/tuempresa" target="_blank"><i class="fab fa-facebook"></i></a></p>
+                    <p><strong>Instagram:</strong> <a href="https://instagram.com/tuempresa" target="_blank"><i class="fab fa-instagram"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
+            AOS.init({
             duration: 1000,
             once: true
         });
@@ -219,11 +283,42 @@
             });
         });
 
-        // Función para mostrar detalles (puede expandirse según necesidades)
-        function showDetails(id) {
-            // Aquí puedes implementar un modal o redirección a página de detalles
-            console.log(`Mostrando detalles del elemento ${id}`);
-        }
+        // Mostrar detalles en el modal
+        const details = {
+            1: {
+                title: "Ventana Corrediza Moderna",
+                category: "Ventanas",
+                description: "Ventana corrediza de aluminio con cristal templado y acabado anodizado."
+            },
+            2: {
+                title: "Puerta Principal de Aluminio",
+                category: "Puertas",
+                description: "Puerta de aluminio con diseño contemporáneo y máxima seguridad."
+            },
+            3: {
+                title: "Cancel para Baño",
+                category: "Cancelería",
+                description: "Cancel de baño con cristal templado y acabados premium."
+            }
+        };
+
+        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                const product = details[id];
+                const modalContent = document.querySelector('#modal-content');
+                modalContent.innerHTML = `
+                    <h3>${product.title}</h3>
+                    <h5>Categoría: ${product.category}</h5>
+                    <p>${product.description}</p>
+                `;
+            });
+        });
+
+        // Aquí iría tu código para cargar los detalles del producto en el modal
     </script>
 </body>
 </html>
+
+
+
