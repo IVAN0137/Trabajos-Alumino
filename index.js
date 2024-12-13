@@ -1,24 +1,15 @@
-// Función para abrir el modal con la imagen seleccionada
-function abrirModal(imagenSrc, descripcion) {
-    const modal = document.getElementById('modal');
-    const modalImg = document.getElementById('modal-img');
-    const modalDesc = document.getElementById('modal-desc');
+function moverCarrusel(id, direction) {
+    const carrusel = document.querySelector(`#${id} .carrusel-items`);
+    const items = carrusel.children;
+    const itemWidth = items[0].offsetWidth;
+    const maxScroll = (items.length - 1) * itemWidth;
 
-    modal.style.display = 'flex';
-    modalImg.src = imagenSrc;
-    modalDesc.textContent = descripcion;
+    let scrollPos = parseInt(carrusel.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+    scrollPos += direction * -itemWidth;
+
+    // Limitar el desplazamiento
+    if (scrollPos > 0) scrollPos = 0;
+    if (scrollPos < -maxScroll) scrollPos = -maxScroll;
+
+    carrusel.style.transform = `translateX(${scrollPos}px)`;
 }
-
-// Función para cerrar el modal
-function cerrarModal() {
-    const modal = document.getElementById('modal');
-    modal.style.display = 'none';
-}
-
-// Cerrar el modal si se hace clic fuera de la imagen
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        cerrarModal();
-    }
-};

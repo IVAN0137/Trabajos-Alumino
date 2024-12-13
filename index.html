@@ -4,80 +4,364 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Herrería y Aluminio</title>
-    <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e67e22;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--secondary-color);
+            z-index: 9999;
+        }
+
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .cursor-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(0,0,0,0.95);
+        }
+
+        .hero-section {
+            height: 100vh;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-info {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            border: none;
+            border-bottom: 2px solid #ddd;
+            border-radius: 0;
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            box-shadow: none;
+            border-color: var(--secondary-color);
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 80vh;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Portafolio de Herrería y Aluminio</h1>
-    </header>
-    
-    <main>
-        <!-- Sección de Aluminio -->
-        <section id="aluminio" class="trabajos">
-            <h2>Trabajos de Aluminio</h2>
-            <div class="galeria">
-                <div class="card" onclick="abrirModal('img/aluminio 2.jpeg', 'Puerta De Aluminio')">
-                    <img src="img/aluminio 2.jpeg" alt="Aluminio 1">
-                    <p>Puerta De Aluminio</p>
-                </div>
-                <div class="card" onclick="abrirModal('img/anodizada.jpeg', 'Trabajo de Aluminio 2')">
-                    <img src="img/anodizada.jpeg" alt="Aluminio 2">
-                    <p>Puerta de aluminio anodizado</p>
-                </div>
-            </div>
-        </section>
+    <div class="progress-bar"></div>
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
 
-        <!-- Sección de Herrería -->
-        <section id="herreria" class="trabajos">
-            <h2>Trabajos de Herrería</h2>
-            <div class="galeria">
-                <div class="card" onclick="abrirModal('img/ventana corrediza.jpeg', 'Trabajo de Herrería 1')">
-                    <img src="img/ventana corrediza.jpeg" alt="Herrería 1">
-                    <p>Puerta de hierro moderna</p>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">Herrería & Aluminio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="hero-section">
+        <div id="particles-js" class="hero-particles"></div>
+        <div class="container text-center hero-content">
+            <h1 class="display-3 mb-4" data-aos="fade-down">Soluciones en Herrería y Aluminio</h1>
+            <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Transformamos metal y aluminio en obras de arte funcionales</p>
+            <a href="#contacto" class="btn btn-warning btn-lg" data-aos="zoom-in" data-aos-delay="400">Solicitar Presupuesto</a>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="service-card text-center p-4">
+                        <i class="fas fa-door-open service-icon mb-3"></i>
+                        <h3>Puertas y Ventanas</h3>
+                        <p>Diseño y fabricación de puertas y ventanas en aluminio y herrería.</p>
+                    </div>
                 </div>
-                <div class="card" onclick="abrirModal('img/herreria2.jpg', 'Trabajo de Herrería 2')">
-                    <img src="img/herreria2.jpg" alt="Herrería 2">
-                    <p>Reja decorativa</p>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card text-center p-4">
+                        <i class="fas fa-shield-alt service-icon mb-3"></i>
+                        <h3>Protecciones</h3>
+                        <p>Protecciones para ventanas y balcones con diseños personalizados.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card text-center p-4">
+                        <i class="fas fa-stairs service-icon mb-3"></i>
+                        <h3>Escaleras</h3>
+                        <p>Escaleras metálicas y barandales con acabados premium.</p>
+                    </div>
                 </div>
             </div>
-        </section>
-    
-        
-    </main>
-    
-    <!-- Modal para expandir imágenes -->
-    <div id="modal" class="modal" onclick="cerrarModal()">
-        <span class="modal-cerrar">&times;</span>
-        <img class="modal-img" id="modal-img" src="" alt="Imagen expandida">
-        <p class="modal-desc" id="modal-desc"></p>
-    </div>
-    
-    <footer id="contacto" class="footer">
-        <h2>Contáctanos</h2>
-        <div class="contacto-icons">
-            <a href="https://www.facebook.com/TuPaginaDeFacebook" target="_blank">
-                <i class="fab fa-facebook-square"></i> Facebook
-            </a>
-            <a href="https://wa.me/+527296838453" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-            <a href="mailto:l20141457@queretaro.tecnm.mx">
-                <i class="fas fa-envelope"></i> Correo
-            </a>
-            <a href="tel:+527296838453">
-                <i class="fas fa-phone"></i> Teléfono
-            </a>
-            <a href="https://www.google.com/maps/@20.9987712,-99.7216152,18.93z?hl=es&entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-                <i class="fas fa-map-marker-alt"></i> Ubicación
-            </a>
+        </div>
+    </section>
+
+    <section id="proyectos" class="gallery-section">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Proyectos Realizados</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <a href="proyecto1.jpg" data-lightbox="gallery" data-title="Puerta Principal">
+                            <img src="proyecto1.jpg" class="img-fluid" alt="Proyecto 1">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h4>Puerta Principal</h4>
+                                    <p>Diseño contemporáneo en herrería</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <a href="proyecto2.jpg" data-lightbox="gallery" data-title="Ventanas de Aluminio">
+                            <img src="proyecto2.jpg" class="img-fluid" alt="Proyecto 2">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h4>Ventanas de Aluminio</h4>
+                                    <p>Sistema corredizo moderno</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <a href="proyecto3.jpg" data-lightbox="gallery" data-title="Barandal">
+                            <img src="proyecto3.jpg" class="img-fluid" alt="Proyecto 3">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h4>Barandal</h4>
+                                    <p>Diseño minimalista en acero inoxidable</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="mb-4">Contáctanos</h2>
+                    <p class="mb-4">¿Tienes un proyecto en mente? Nos encantaría ayudarte a hacerlo realidad.</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone me-2"></i> +52 123 456 7890</p>
+                        <p><i class="fas fa-envelope me-2"></i> info@herreriayaluminio.com</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Calle Principal #123, Ciudad</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Herrería & Aluminio</h3>
+                    <p>Expertos en transformar tus ideas en realidad</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links mb-3">
+                        <p>Síguenos en nuestras redes sociales:</p>
+                        <a href="https://facebook.com/herreriayaluminio" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/herreriayaluminio" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/521234567890" target="_blank" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-    
-    
-    
 
-    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        // Inicializar AOS
+        AOS.init();
+
+        // Configuración de particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: { enable: true, speed: 6 }
+            }
+        });
+
+        // Efecto de cursor personalizado
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+
+        // Barra de progreso
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxHeight) * 100;
+            document.querySelector('.progress-bar').style.width = progress + '%';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>
