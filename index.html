@@ -28,25 +28,7 @@
             z-index: 9999;
         }
 
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--secondary-color);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
-        .cursor-dot {
-            width: 5px;
-            height: 5px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-        }
+        
 
         .navbar {
             background: rgba(0,0,0,0.8);
@@ -237,7 +219,7 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up">
                     <div class="project-card">
-                        <a href="proyecto1.jpg" data-lightbox="gallery" data-title="Puerta Principal">
+                        <a href="aluminios.html" data-lightbox="gallery" data-title="Puerta Principal">
                             <img src="proyecto1.jpg" class="img-fluid" alt="Proyecto 1">
                             <div class="project-overlay">
                                 <div class="project-info">
@@ -250,7 +232,7 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
-                        <a href="proyecto2.jpg" data-lightbox="gallery" data-title="Ventanas de Aluminio">
+                        <a href="herrerias.html" data-lightbox="gallery" data-title="Ventanas de Aluminio">
                             <img src="proyecto2.jpg" class="img-fluid" alt="Proyecto 2">
                             <div class="project-overlay">
                                 <div class="project-info">
@@ -261,19 +243,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card">
-                        <a href="proyecto3.jpg" data-lightbox="gallery" data-title="Barandal">
-                            <img src="proyecto3.jpg" class="img-fluid" alt="Proyecto 3">
-                            <div class="project-overlay">
-                                <div class="project-info">
-                                    <h4>Barandal</h4>
-                                    <p>Diseño minimalista en acero inoxidable</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -282,13 +252,53 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h2 class="mb-4">Contáctanos</h2>
-                    <p class="mb-4">¿Tienes un proyecto en mente? Nos encantaría ayudarte a hacerlo realidad.</p>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone me-2"></i> +52 123 456 7890</p>
-                        <p><i class="fas fa-envelope me-2"></i> info@herreriayaluminio.com</p>
-                        <p><i class="fas fa-map-marker-alt me-2"></i> Calle Principal #123, Ciudad</p>
+                    <div class="contact-icons mb-4">
+                        <div class="d-flex justify-content-start gap-4">
+                            <a href="https://facebook.com/tuempresa" target="_blank" class="contact-icon" title="Facebook">
+                                <i class="fab fa-facebook fa-2x text-primary"></i>
+                                <span class="icon-label">Facebook</span>
+                            </a>
+                            <a href="https://instagram.com/tuempresa" target="_blank" class="contact-icon" title="Instagram">
+                                <i class="fab fa-instagram fa-2x" style="color: #E1306C"></i>
+                                <span class="icon-label">Instagram</span>
+                            </a>
+                            <a href="https://wa.me/+527296838453" target="_blank" class="contact-icon" title="WhatsApp">
+                                <i class="fab fa-whatsapp fa-2x text-success"></i>
+                                <span class="icon-label">WhatsApp</span>
+                            </a>
+                            <a href="mailto:herreriayaluminios@gmail.com" class="contact-icon" title="Email">
+                                <i class="fas fa-envelope fa-2x text-primary"></i>
+                                <span class="icon-label">Email</span>
+                            </a>
+                            <a href="tel:+527296838453" class="contact-icon" title="Teléfono">
+                                <i class="fas fa-phone-alt fa-2x text-info"></i>
+                                <span class="icon-label">Teléfono</span>
+                            </a>
+                            <a href="https://goo.gl/maps/..." target="_blank" class="contact-icon" title="Ubicación">
+                                <i class="fas fa-map-marker-alt fa-2x text-danger"></i>
+                                <span class="icon-label">Ubicación</span>
+                            </a>
+                        </div>
+                        <style>
+                            .contact-icon {
+                                text-decoration: none;
+                                text-align: center;
+                                transition: all 0.3s ease;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .contact-icon:hover {
+                                transform: translateY(-5px);
+                            }
+                            .icon-label {
+                                font-size: 0.8rem;
+                                margin-top: 0.5rem;
+                                color: #666;
+                            }
+                        </style>
                     </div>
+                   </div>
                 </div>
                 
             </div>
@@ -301,14 +311,6 @@
                 <div class="col-md-6">
                     <h3>Herrería & Aluminio</h3>
                     <p>Expertos en transformar tus ideas en realidad</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <div class="social-links mb-3">
-                        <p>Síguenos en nuestras redes sociales:</p>
-                        <a href="https://facebook.com/herreriayaluminio" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com/herreriayaluminio" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/521234567890" target="_blank" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -334,16 +336,7 @@
             }
         });
 
-        // Efecto de cursor personalizado
-        const cursor = document.querySelector('.cursor');
-        const cursorDot = document.querySelector('.cursor-dot');
-
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-        });
+        
 
         // Barra de progreso
         window.addEventListener('scroll', () => {
