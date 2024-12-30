@@ -47,7 +47,7 @@
 .catalog-img-wrapper {
     position: relative;
     overflow: hidden;
-    padding-top: 75%; /* Aspect ratio 4:3 */
+    padding-top: 75%;
 }
 
 .catalog-img {
@@ -96,6 +96,7 @@
     line-height: 1.6;
     margin-bottom: 20px;
 }
+
 
 .filter-container {
     padding: 20px;
@@ -201,108 +202,10 @@
     box-shadow: 0 8px 20px rgba(230,126,34,0.3);
 }
 
-.modal-img-container {
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    margin-bottom: 25px;
-}
-
-.modal-img {
-    width: 100%;
-    border-radius: 15px;
-    transition: transform 0.5s ease;
-}
-
-.modal-img:hover {
-    transform: scale(1.05);
-}
-
-.specs-list {
-    list-style: none;
-    padding: 0;
-}
-
-.specs-list li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.specs-list li:before {
-    content: "✓";
-    color: var(--secondary-color);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-/* Mejoras para móvil */
-@media (max-width: 768px) {
-    .catalog-section {
-        padding: 40px 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .filter-container {
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 15px;
-        margin: 0 -15px 30px;
-        border-radius: 0;
-    }
-
-    .filter-btn {
-        padding: 10px 20px;
-        font-size: 0.85rem;
-    }
-
-    .catalog-item {
-        margin-bottom: 25px;
-    }
-
-    .catalog-title {
-        font-size: 1.2rem;
-    }
-
-    .social-links {
-        gap: 15px;
-    }
-
-    .social-links a {
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-    }
-
-    .modal-dialog {
-        margin: 10px;
-    }
-
-    .modal-header {
-        padding: 20px;
-    }
-
-    .modal-body {
-        padding: 20px;
-    }
-}
-
-/* Animaciones suaves */
+/* Animaciones */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fadeInUp {
