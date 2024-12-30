@@ -6,6 +6,12 @@
     --dark-bg: #2c3e50;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .catalog-section {
     padding: 60px 0;
     background: var(--light-bg);
@@ -26,22 +32,22 @@
     padding: 20px;
     border-radius: 20px;
     background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .catalog-item {
     margin-bottom: 30px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     background: white;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .catalog-item:hover {
     transform: translateY(-15px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .catalog-img-wrapper {
@@ -80,7 +86,7 @@
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(230,126,34,0.3);
+    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
 }
 
 .catalog-title {
@@ -97,13 +103,12 @@
     margin-bottom: 20px;
 }
 
-
 .filter-container {
     padding: 20px;
     margin-bottom: 40px;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .filter-btn {
@@ -113,22 +118,23 @@
     border-radius: 30px;
     background: var(--light-bg);
     color: var(--primary-color);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 0.3s ease, transform 0.3s ease;
     font-weight: 600;
     font-size: 0.9rem;
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover,
+.filter-btn.active {
     background: var(--secondary-color);
     color: white;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(230,126,34,0.3);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
 }
 
 .btn-action {
     padding: 10px 25px;
     border-radius: 25px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
     margin: 5px;
     font-weight: 600;
     font-size: 0.9rem;
@@ -143,7 +149,7 @@
 .btn-details:hover {
     background: var(--accent-color);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(52,152,219,0.3);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
 }
 
 .btn-contact {
@@ -154,13 +160,13 @@
 .btn-contact:hover {
     background: #d35400;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(230,126,34,0.3);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
 }
 
 .modal-content {
     border-radius: 20px;
     border: none;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
 }
 
 .modal-header {
@@ -199,20 +205,26 @@
     color: white;
     background: var(--secondary-color);
     transform: translateY(-5px) rotate(360deg);
-    box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+    box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
 }
 
 /* Animaciones */
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .animate-fadeInUp {
     animation: fadeInUp 0.6s ease forwards;
 }
+
 .btn-wood {
-    background: url('res/btn/TexturaMadera.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
     border: none;
