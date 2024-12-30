@@ -8,142 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #e67e22;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--secondary-color);
-            z-index: 9999;
-        }
-
-        
-
-        .navbar {
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-        }
-
-        .navbar.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(0,0,0,0.95);
-        }
-
-        .hero-section {
-            height: 100vh;
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-info {
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            border: none;
-            border-bottom: 2px solid #ddd;
-            border-radius: 0;
-            padding: 0.5rem 0;
-            margin-bottom: 1rem;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            box-shadow: none;
-            border-color: var(--secondary-color);
-        }
-
-        footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 3rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero-section {
-                height: 80vh;
-            }
-            
-            .service-card {
-                margin-bottom: 2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="progress-bar"></div>
@@ -180,7 +45,16 @@
         <div class="container text-center hero-content">
             <h1 class="display-3 mb-4" data-aos="fade-down">Soluciones en Herrería y Aluminio</h1>
             <p class="lead mb-4" data-aos="fade-up" data-aos-delay="200">Transformamos metal y aluminio en obras de arte funcionales</p>
-            <a href="#contacto" class="btn btn-warning btn-lg" data-aos="zoom-in" data-aos-delay="400">Solicitar Presupuesto</a>
+            <a href="#contacto" class="btn btn-lg btn-wood" data-aos="zoom-in" data-aos-delay="400">
+                <span style="position: relative; z-index: 1;">Solicitar Presupuesto</span>
+                <!-- Textura de acero cepillado -->
+                <span style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 2px);"></span>
+                <!-- Remaches -->
+                <span style="position: absolute; top: 5px; left: 5px; width: 12px; height: 12px; background: radial-gradient(circle at 40% 40%, #5a6065, #333); border-radius: 50%; box-shadow: 2px 2px 3px rgba(0,0,0,0.3);"></span>
+                <span style="position: absolute; top: 5px; right: 5px; width: 12px; height: 12px; background: radial-gradient(circle at 40% 40%, #5a6065, #333); border-radius: 50%; box-shadow: 2px 2px 3px rgba(0,0,0,0.3);"></span>
+                <span style="position: absolute; bottom: 5px; left: 5px; width: 12px; height: 12px; background: radial-gradient(circle at 40% 40%, #5a6065, #333); border-radius: 50%; box-shadow: 2px 2px 3px rgba(0,0,0,0.3);"></span>
+                <span style="position: absolute; bottom: 5px; right: 5px; width: 12px; height: 12px; background: radial-gradient(circle at 40% 40%, #5a6065, #333); border-radius: 50%; box-shadow: 2px 2px 3px rgba(0,0,0,0.3);"></span>
+            </a>
         </div>
     </section>
 
@@ -279,24 +153,7 @@
                                 <span class="icon-label">Ubicación</span>
                             </a>
                         </div>
-                        <style>
-                            .contact-icon {
-                                text-decoration: none;
-                                text-align: center;
-                                transition: all 0.3s ease;
-                                display: flex;
-                                flex-direction: column;
-                                align-items: center;
-                            }
-                            .contact-icon:hover {
-                                transform: translateY(-5px);
-                            }
-                            .icon-label {
-                                font-size: 0.8rem;
-                                margin-top: 0.5rem;
-                                color: #666;
-                            }
-                        </style>
+                       
                     </div>
                    </div>
                 </div>
@@ -320,41 +177,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Inicializar AOS
-        AOS.init();
-
-        // Configuración de particles.js
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: { enable: true, speed: 6 }
-            }
-        });
-
-        
-
-        // Barra de progreso
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = (scrolled / maxHeight) * 100;
-            document.querySelector('.progress-bar').style.width = progress + '%';
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>

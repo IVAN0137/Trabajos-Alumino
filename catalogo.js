@@ -1,40 +1,36 @@
-AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100,
-    easing: 'ease-out-cubic'
+        
+        
+// Inicializar AOS
+AOS.init();
+
+// Configuración de particles.js
+particlesJS('particles-js', {
+    particles: {
+        number: { value: 80 },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { enable: true, speed: 6 }
+    }
 });
 
-// Filtrado de elementos con animación
-document.querySelectorAll('.filter-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
-        
-        document.querySelectorAll('.catalog-item').forEach(item => {
-            const parent = item.parentElement;
-            if (filter === 'todos' || item.getAttribute('data-category') === filter) {
-                parent.style.display = 'block';
-                item.classList.add('animate-fadeInUp');
-            } else {
-                parent.style.display = 'none';
-            }
-        });
-        
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        button.classList.add('active');
-    });
+
+
+// Barra de progreso
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrolled / maxHeight) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
 });
 
-// Mejorar experiencia táctil en móviles
-if ('ontouchstart' in window) {
-    document.querySelectorAll('.catalog-item').forEach(item => {
-        item.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-        item.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
-}
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});

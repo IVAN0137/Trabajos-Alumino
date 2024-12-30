@@ -1,15 +1,44 @@
-function moverCarrusel(id, direction) {
-    const carrusel = document.querySelector(`#${id} .carrusel-items`);
-    const items = carrusel.children;
-    const itemWidth = items[0].offsetWidth;
-    const maxScroll = (items.length - 1) * itemWidth;
+ // Inicializar AOS
+ AOS.init();
 
-    let scrollPos = parseInt(carrusel.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
-    scrollPos += direction * -itemWidth;
+ // Configuración de particles.js
+ particlesJS('particles-js', {
+     particles: {
+         number: { value: 80 },
+         color: { value: '#ffffff' },
+         shape: { type: 'circle' },
+         opacity: { value: 0.5 },
+         size: { value: 3 },
+         move: { enable: true, speed: 6 }
+     }
+ });
 
-    // Limitar el desplazamiento
-    if (scrollPos > 0) scrollPos = 0;
-    if (scrollPos < -maxScroll) scrollPos = -maxScroll;
+ 
 
-    carrusel.style.transform = `translateX(${scrollPos}px)`;
-}
+ // Barra de progreso
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const maxHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrolled / maxHeight) * 100;
+    document.querySelector('.progress-bar').style.width = progress + '%';
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.querySelector('.btn');
+    button.addEventListener('click', function() {
+        button.classList.add('btn-click-animation');
+        setTimeout(() => {
+            button.classList.remove('btn-click-animation');
+        }, 600); // Duración de la animación
+    });
+});
