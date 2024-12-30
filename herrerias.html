@@ -3,191 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Trabajos en Herrería</title>
+    <title>Catálogo de Trabajos en Herreria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-        }
-
-        .catalog-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('aluminio-header.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .catalog-item {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .catalog-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .catalog-img {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .catalog-img img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .catalog-item:hover .catalog-img img {
-            transform: scale(1.1);
-        }
-
-        .catalog-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(52, 152, 219, 0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .catalog-item:hover .catalog-overlay {
-            opacity: 1;
-        }
-
-        .catalog-details {
-            padding: 1.5rem;
-        }
-
-        .catalog-category {
-            color: var(--accent-color);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .catalog-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .catalog-description {
-            color: #666;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .filters {
-            margin-bottom: 2rem;
-        }
-
-        .filter-btn {
-            background: none;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            margin: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--accent-color);
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="catalogo.css">
+   
 </head>
 <body>
-    <div class="catalog-header">
+
+    <section class="catalog-section">
         <div class="container">
-            <h1 class="display-4 mb-3" data-aos="fade-up">Catálogo de Herrería</h1>
-            <p class="lead" data-aos="fade-up" data-aos-delay="200">Soluciones elegantes y duraderas para tu hogar o negocio</p>
+            <h2 class="section-title" data-aos="fade-up">Nuestros Trabajos de Herreria</h2>
+            
+            <div class="filter-container" data-aos="fade-up">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <a href="index.html" class="filter-btn" style="text-decoration: none;">
+                        <i class="fas fa-home me-2"></i>Inicio
+                    </a>
+                    <button class="filter-btn active" data-filter="todos">Todos los Trabajos</button>
+                    <button class="filter-btn" data-filter="ventanas">Ventanas</button>
+                    <button class="filter-btn" data-filter="puertas">Puertas</button>
+                    <button class="filter-btn" data-filter="barandales">Barandales</button>
+                    <a href="aluminios.html" class="filter-btn" style="text-decoration: none;">Trabajos de aluminio</a>
+                </div>
+            </div>
+            
+            <div class="catalog-wrapper">
+                <div class="row g-4">
+                    <!-- Elemento del catálogo 1 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                        <div class="catalog-item" data-category="ventanas">
+                            <div class="catalog-img-wrapper">
+                                <img src="img/ventana1.jpg" alt="Ventana Moderna" class="catalog-img">
+                            </div>
+                            <div class="catalog-info">
+                                <span class="catalog-category">Ventana</span>
+                                <h3 class="catalog-title">Ventana Moderna</h3>
+                                <p class="catalog-description">Diseño contemporáneo con cristal templado y acabados premium.</p>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <button class="btn btn-action btn-details" data-bs-toggle="modal" data-bs-target="#detallesModal1">
+                                        <i class="fas fa-search-plus me-2"></i>Ver Detalles
+                                    </button>
+                                    <button class="btn btn-action btn-contact" data-bs-toggle="modal" data-bs-target="#contactoModal">
+                                        <i class="fas fa-envelope me-2"></i>Contáctanos
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Agregar más elementos siguiendo el mismo patrón -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Detalles -->
+    <div class="modal fade" id="detallesModal1" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-info-circle me-2"></i>Ventana Moderna - Especificaciones</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-img-container">
+                        <img src="img/ventana1.jpg" alt="Ventana Moderna" class="modal-img">
+                    </div>
+                    <h6 class="fw-bold mb-4">Características Principales:</h6>
+                    <ul class="specs-list">
+                        <li>Material: Aluminio anodizado serie 3000</li>
+                        <li>Cristal templado de 6mm con filtro UV</li>
+                        <li>Sistema de cierre hermético de alta seguridad</li>
+                        <li>Medidas personalizables según necesidades</li>
+                        <li>Garantía extendida de 5 años</li>
+                        <li>Instalación profesional incluida</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="filters text-center" data-aos="fade-up">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="ventanas">Ventanas</button>
-            <button class="filter-btn" data-filter="puertas">Puertas</button>
-            <button class="filter-btn" data-filter="canceleria">Cancelería</button>
-        </div>
-
-        <div class="row" id="catalog-grid">
-            <!-- Elemento 1 -->
-            <div class="col-md-4" data-aos="fade-up" data-category="ventanas">
-                <div class="catalog-item">
-                    <div class="catalog-img">
-                        <img src="ventana1.jpg" alt="Ventana Corrediza">
-                        <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(1)">Ver Detalles</button>
-                        </div>
-                    </div>
-                    <div class="catalog-details">
-                        <div class="catalog-category">Ventanas</div>
-                        <h3 class="catalog-title">Ventana Corrediza Moderna</h3>
-                        <p class="catalog-description">Ventana corrediza de aluminio con cristal templado y acabado anodizado.</p>
-                    </div>
+    <!-- Modal de Contacto -->
+    <div class="modal fade" id="contactoModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-handshake me-2"></i>Conecta con Nosotros</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-            </div>
-
-            <!-- Elemento 2 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200" data-category="puertas">
-                <div class="catalog-item">
-                    <div class="catalog-img">
-                        <img src="puerta1.jpg" alt="Puerta Principal">
-                        <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(2)">Ver Detalles</button>
-                        </div>
-                    </div>
-                    <div class="catalog-details">
-                        <div class="catalog-category">Puertas</div>
-                        <h3 class="catalog-title">Puerta Principal de Aluminio</h3>
-                        <p class="catalog-description">Puerta de aluminio con diseño contemporáneo y máxima seguridad.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Elemento 3 -->
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400" data-category="canceleria">
-                <div class="catalog-item">
-                    <div class="catalog-img">
-                        <img src="cancel1.jpg" alt="Cancelería">
-                        <div class="catalog-overlay">
-                            <button class="btn btn-light" onclick="showDetails(3)">Ver Detalles</button>
-                        </div>
-                    </div>
-                    <div class="catalog-details">
-                        <div class="catalog-category">Cancelería</div>
-                        <h3 class="catalog-title">Cancel para Baño</h3>
-                        <p class="catalog-description">Cancel de baño con cristal templado y acabados premium.</p>
+                <div class="modal-body text-center">
+                    <p class="lead mb-4">Elige tu medio preferido para contactarnos:</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/tuempresa" target="_blank" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com/tuempresa" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:contacto@tuempresa.com" title="Email">
+                            <i class="far fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -196,34 +117,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Filtrado de elementos
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                e.target.classList.add('active');
-                
-                const filter = e.target.getAttribute('data-filter');
-                document.querySelectorAll('#catalog-grid > div').forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Función para mostrar detalles (puede expandirse según necesidades)
-        function showDetails(id) {
-            // Aquí puedes implementar un modal o redirección a página de detalles
-            console.log(`Mostrando detalles del elemento ${id}`);
-        }
-    </script>
+    <script src="catalogo.js"></script>
+    
+   
 </body>
 </html>
+
+
