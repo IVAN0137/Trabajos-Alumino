@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'title';
+    src:  url('res/fonts/U2-Metalona.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Como usar la fuente en otros archivos CSS:
+.elemento {
+    font-family: 'NombreDeTuFuente', sans-serif;
+} */
