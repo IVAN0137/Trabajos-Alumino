@@ -86,6 +86,7 @@ header p {
 }
 
 .wood-button {
+    text-decoration: none;
     background: linear-gradient(45deg, var(--wood-color-1), var(--wood-color-2));
     color: var(--light-text-color);
     border: none;
@@ -179,6 +180,7 @@ header p {
 }
 
 .modal {
+    
     display: none;
     position: fixed;
     z-index: 1000;

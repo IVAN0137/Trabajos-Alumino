@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Datos de ejemplo para los trabajos en aluminio
     const trabajos = [
-        { id: 1, titulo: "Ventana Corredera", categoria: "ventanas", imagen: "https://images.unsplash.com/photo-1604082692281-2d2d0f0a0c9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80", descripcion: "Ventana corredera de aluminio con doble vidrio para mayor aislamiento térmico y acústico. Diseño moderno y elegante que se adapta a cualquier estilo de hogar." },
+        { id: 1, titulo: "Ventana Corredera", categoria: "ventanas", imagen: "img/Aluminio/VentanaCorrediza.jpg", descripcion: "Ventana corredera de aluminio con doble vidrio para mayor aislamiento térmico y acústico. Diseño moderno y elegante que se adapta a cualquier estilo de hogar." },
         { id: 2, titulo: "Puerta de Entrada", categoria: "puertas", imagen: "https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80", descripcion: "Puerta de entrada de aluminio con diseño contemporáneo. Combina seguridad y estilo para la entrada principal de tu hogar." },
         { id: 3, titulo: "Cancel de Baño", categoria: "canceles", imagen: "https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80", descripcion: "Cancel de baño en aluminio y vidrio templado, con tratamiento antical. Elegante, funcional y fácil de limpiar para un baño moderno." },
         { id: 4, titulo: "Ventana Abatible", categoria: "ventanas", imagen: "https://images.unsplash.com/photo-1604082692281-2d2d0f0a0c9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80", descripcion: "Ventana abatible de aluminio con sistema de apertura hacia el interior. Ideal para espacios que requieren una ventilación controlada." },
@@ -47,13 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const modalTitle = document.getElementById('modal-title');
         const modalDescription = document.getElementById('modal-description');
 
+        // Actualizar contenido del modal
+
         modalImg.src = trabajo.imagen;
         modalImg.alt = trabajo.titulo;
         modalTitle.textContent = trabajo.titulo;
         modalDescription.textContent = trabajo.descripcion;
 
         // Actualizar enlaces de redes sociales
-        document.getElementById('whatsapp-button').href = `https://wa.me/1234567890?text=Me%20interesa%20el%20producto%20${encodeURIComponent(trabajo.titulo)}`;
+        document.getElementById('whatsapp-button').href = `https://wa.me/+527296838453?text=Me%20interesa%20el%20producto%20${encodeURIComponent(trabajo.titulo)}`;
         document.getElementById('facebook-button').href = 'https://www.facebook.com/tuempresa';
         document.getElementById('instagram-button').href = 'https://www.instagram.com/tuempresa';
 
