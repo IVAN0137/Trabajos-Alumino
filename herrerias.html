@@ -4,123 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Trabajos en Herreria</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="catalogo.css">
-   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <section class="catalog-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Nuestros Trabajos de Herreria</h2>
-            
-            <div class="filter-container" data-aos="fade-up">
-                <div class="d-flex justify-content-center flex-wrap">
-                    <a href="index.html" class="filter-btn" style="text-decoration: none;">
-                        <i class="fas fa-home me-2"></i>Inicio
-                    </a>
-                    <button class="filter-btn active" data-filter="todos">Todos los Trabajos</button>
-                    <button class="filter-btn" data-filter="ventanas">Ventanas</button>
-                    <button class="filter-btn" data-filter="puertas">Puertas</button>
-                    <button class="filter-btn" data-filter="barandales">Barandales</button>
-                    <a href="aluminios.html" class="filter-btn" style="text-decoration: none;">Trabajos de aluminio</a>
-                </div>
-            </div>
-            
-            <div class="catalog-wrapper">
-                <div class="row g-4">
-                    <!-- Elemento del catálogo 1 -->
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                        <div class="catalog-item" data-category="ventanas">
-                            <div class="catalog-img-wrapper">
-                                <img src="img/ventana1.jpg" alt="Ventana Moderna" class="catalog-img">
-                            </div>
-                            <div class="catalog-info">
-                                <span class="catalog-category">Ventana</span>
-                                <h3 class="catalog-title">Ventana Moderna</h3>
-                                <p class="catalog-description">Diseño contemporáneo con cristal templado y acabados premium.</p>
-                                <div class="d-flex justify-content-center gap-2">
-                                    <button class="btn btn-action btn-details" data-bs-toggle="modal" data-bs-target="#detallesModal1">
-                                        <i class="fas fa-search-plus me-2"></i>Ver Detalles
-                                    </button>
-                                    <button class="btn btn-action btn-contact" data-bs-toggle="modal" data-bs-target="#contactoModal">
-                                        <i class="fas fa-envelope me-2"></i>Contáctanos
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Agregar más elementos siguiendo el mismo patrón -->
-                </div>
+    <header>
+        <div class="header-content">
+            <h1>Nuestros Trabajos en Herreria</h1>
+            <p>Calidad y Elegancia en Cada Detalle</p>
+            <div class="header-buttons">
+                <a href="index.html" class="header-button wood-button" style="text-decoration: none;" >Inicio</a>
+                <a href="aluminios.html" class="header-button wood-button">Ver trabajos en Aluminio</a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Modal de Detalles -->
-    <div class="modal fade" id="detallesModal1" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-info-circle me-2"></i>Ventana Moderna - Especificaciones</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="modal-img-container">
-                        <img src="img/ventana1.jpg" alt="Ventana Moderna" class="modal-img">
-                    </div>
-                    <h6 class="fw-bold mb-4">Características Principales:</h6>
-                    <ul class="specs-list">
-                        <li>Material: Aluminio anodizado serie 3000</li>
-                        <li>Cristal templado de 6mm con filtro UV</li>
-                        <li>Sistema de cierre hermético de alta seguridad</li>
-                        <li>Medidas personalizables según necesidades</li>
-                        <li>Garantía extendida de 5 años</li>
-                        <li>Instalación profesional incluida</li>
-                    </ul>
-                </div>
+    <nav class="filter-nav">
+        <button class="filter-button wood-button active" data-filter="todos">Todos</button>
+        <button class="filter-button wood-button" data-filter="puertas">Puertas</button>
+        <button class="filter-button wood-button" data-filter="ventanas">Ventanas</button>
+        <button class="filter-button wood-button" data-filter="canceles">Canceles</button>
+    </nav>
+
+    <main>
+        <div id="catalog" class="catalog-grid">
+            <!-- Las imágenes se agregarán dinámicamente con JavaScript -->
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div class="social-buttons">
+                <a href="#" id="whatsapp-button" class="social-button whatsapp wood-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="#" id="facebook-button" class="social-button facebook wood-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="#" id="instagram-button" class="social-button instagram wood-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Modal de Contacto -->
-    <div class="modal fade" id="contactoModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"><i class="fas fa-handshake me-2"></i>Conecta con Nosotros</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <p class="lead mb-4">Elige tu medio preferido para contactarnos:</p>
-                    <div class="social-links">
-                        <a href="https://facebook.com/tuempresa" target="_blank" title="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="https://instagram.com/tuempresa" target="_blank" title="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:contacto@tuempresa.com" title="Email">
-                            <i class="far fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="catalogo.js"></script>
-    
-   
+    <script src="herrerias.js"></script>
 </body>
 </html>
-
-
